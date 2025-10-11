@@ -1,76 +1,38 @@
 class Bean():
     name: str
     number_in_deck: int
-    number_needed_to_harvest: dict[int, int | None]
+    # Maps a number of beans to the coins received when harvested
+    number_needed_to_harvest: dict[int, int]
 
+    def __init__(self, name: str, number_in_deck: int, number_needed_to_harvest: dict[int, int]) -> None:
+        self.name = name
+        self.number_in_deck = number_in_deck
+        self.number_needed_to_harvest = number_needed_to_harvest
 
-class CoffeeBean(Bean):
-    name = "Coffee Bean"
-    number_in_deck = 24
-    number_needed_to_harvest = {1: 4, 2: 7, 3: 10, 4: 12}
+BEANS = [
+    Bean("Coffee Bean", 24, {4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 2, 10: 3, 11: 3, 12: 4}),
+    Bean("Wax Bean", 22, {4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 3, 10: 3, 11: 4}),
+    Bean("Blue Bean", 20, {4: 1, 5: 1, 6: 2, 7: 2, 8: 3, 9: 3, 10: 4}),
+    Bean("Chili Bean", 18, {3: 1, 4: 1, 5: 1, 6: 2, 7: 2, 8: 3, 9: 4}),
+    Bean("Stink Bean", 16, {3: 1, 4: 1, 5: 2, 6: 2, 7: 3, 8: 4}),
+    Bean("Green Bean", 14, {3: 1, 4: 1, 5: 2, 6: 3, 7: 4}),
+    Bean("Soy Bean", 12, {2: 1, 3: 1, 4: 2, 5: 2, 6: 3, 7: 4}),
+    Bean("Black-Eyed Bean", 10, {2: 1, 3:1, 4: 2, 5: 3, 6: 4}),
+    Bean("Red Bean", 8, {2: 1, 3: 2, 4: 3, 5: 4}),
+    Bean("Garden Bean", 6, {2: 2, 3: 3}),
+    Bean("Cocoa Bean", 4, {2: 2, 3: 3, 4: 4}),
+    Bean("Field Bean", 3, {2: 2, 3: 3})
+]
 
-
-class WaxBean(Bean):
-    name = "Wax Bean"
-    number_in_deck = 22
-    number_needed_to_harvest = {1: 4, 2: 7, 3: 9, 4: 11}
-
-
-class BlueBean(Bean):
-    name = "Blue Bean"
-    number_in_deck = 20
-    number_needed_to_harvest = {1: 4, 2: 6, 3: 8, 4: 10}
-
-
-class ChiliBean(Bean):
-    name = "Chili Bean"
-    number_in_deck = 18
-    number_needed_to_harvest = {1: 3, 2: 6, 3: 8, 4: 9}
-
-
-class StinkBean(Bean):
-    name = "Stink Bean"
-    number_in_deck = 16
-    number_needed_to_harvest = {1: 3, 2: 5, 3: 7, 4: 8}
-
-
-class GreenBean(Bean):
-    name = "Green Bean"
-    number_in_deck = 14
-    number_needed_to_harvest = {1: 3, 2: 5, 3: 6, 4: 7}
-
-
-class SoyBean(Bean):
-    name = "Soy Bean"
-    number_in_deck = 12
-    number_needed_to_harvest = {1: 2, 2: 4, 3: 6, 4: 7}
-
-
-class BlackEyedBean(Bean):
-    name = "Black-Eyed Bean"
-    number_in_deck = 10
-    number_needed_to_harvest = {1: 2, 2: 4, 3: 5, 4: 6}
-
-
-class RedBean(Bean):
-    name = "Red Bean"
-    number_in_deck = 8
-    number_needed_to_harvest = {1: 2, 2: 3, 3: 4, 4: 5}
-
-
-class GardenBean(Bean):
-    name = "Garden Bean"
-    number_in_deck = 6
-    number_needed_to_harvest = {1: None, 2: 2, 3: 3, 4: None}
-
-
-class CocoaBean(Bean):
-    name = "Cocoa Bean"
-    number_in_deck = 4
-    number_needed_to_harvest = {1: None, 2: 2, 3: 3, 4: 4}
-
-
-class FieldBean(Bean):
-    name = "Field Bean"
-    number_in_deck = 3
-    number_needed_to_harvest = {1: None, 2: 2, 3: 3, 4: None}
+COFFEE_BEAN = 0
+WAX_BEAN = 1
+BLUE_BEAN = 2
+CHILI_BEAN = 3
+STINK_BEAN = 4
+GREEN_BEAN = 5
+SOY_BEAN = 6
+BLACK_EYED_BEAN = 7
+RED_BEAN = 8
+GARDEN_BEAN = 9
+COCOA_BEAN = 10
+FIELD_BEAN = 11

@@ -1,9 +1,10 @@
-from setup import setup_game, game
+from game import Game
 
 
 if __name__ == "__main__":
-    setup_game()
+    game = Game()
     print("Starting game...")
+    game.setup()
 
     for index, player in enumerate(game.players):
         player.order = index + 1
