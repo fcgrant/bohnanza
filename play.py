@@ -14,13 +14,12 @@ if __name__ == "__main__":
         print(f"{player.name}, your turn!")
         player.print_hand()
 
-        print("Planting phase...")
-        player.plant(player.hand[0])
+        game.planting_before_trade_phase(player)
 
-        print("Plant your next bean? (y/n)")
-        player.print_hand()
-        choice = input().lower()
-        player.plant(player.hand[0]) if choice == 'y' else None
+        game.trading_phase(player)
+        
+        game.planting_after_trade_phase(player)
 
-        print("Flipping cards...")
+        game.draw_phase(player)
+
         input("Press Enter to end your turn...")

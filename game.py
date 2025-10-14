@@ -34,4 +34,33 @@ class Game:
 
         print("Hands dealt.")
         print("Game setup complete.")
+    
+    def planting_before_trade_phase(self, player: Player) -> None:
+        print("Pre-trade planting phase...")
+        if len(player.hand) == 0:
+            print("No beans in hand to plant. Skipping to trading phase.")
+            return
 
+        player.plant()
+
+        if len(player.hand) == 0:
+            print("No beans in hand to plant. Skipping to trading phase.")
+            return
+
+        print("Plant your next bean? (y/n)")
+        player.print_hand()
+        choice = input().lower()
+        player.plant() if choice == 'y' else None
+        print("Moving to trading phase...")
+    
+    def trading_phase(self, player: Player) -> None:
+        print("Trading phase...")
+        # Trading logic to be implemented
+        pass
+
+    def planting_after_trade_phase(self, player: Player) -> None:
+        print("Post-trade planting phase...")
+        pass
+    
+    def draw_phase(self, player: Player) -> None:
+        pass
