@@ -9,6 +9,10 @@ class Bean():
         self.number_in_deck = number_in_deck
         self.number_needed_to_harvest = number_needed_to_harvest
 
+    def __format__(self, format_spec: str) -> str:
+        return f"{self.name} ({self.number_in_deck})"
+    
+
 BEANS = [
     Bean("Coffee Bean", 24, {4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 2, 10: 3, 11: 3, 12: 4}),
     Bean("Wax Bean", 22, {4: 1, 5: 1, 6: 1, 7: 2, 8: 2, 9: 3, 10: 3, 11: 4}),
