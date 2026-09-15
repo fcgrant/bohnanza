@@ -1,7 +1,5 @@
 import random
 
-from beans import BEANS, Bean
-
 class Deck():
     beans: dict[int, int] = {}
 
