@@ -1,6 +1,7 @@
 import random
 
 class Deck():
+    # A dictionary of the bean ID to the number of those beans in the deck
     beans: dict[int, int] = {}
 
     def draw_bean(self) -> int:
