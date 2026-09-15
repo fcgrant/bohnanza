@@ -11,7 +11,7 @@ class Field():
     def get_bean_name(self) -> str:
         if self.bean_id is None:
             return "Empty"
-        return BEANS[self.bean_id].name
+        return f"{BEANS[self.bean_id]}"
 
     def plant(self, bean_index: int) -> None:
         if self.bean_id is not None and self.bean_id != bean_index:

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     for player in game.players:
         try:
             print(f"{player.name}, your turn!")
-            player.print_hand()
+            player.print_beans(player.hand)
             game.planting_before_trade_phase(player)
             game.trade_phase(player)
             game.planting_after_trade_phase(player)

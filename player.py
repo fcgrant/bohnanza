@@ -22,16 +22,12 @@ class Player():
             if field.bean_id is None or field.bean_id == bean_index
         ]
 
-    def plant(self):
-        if not self.hand:
-            print("No beans in hand to plant.")
-            return
-
-        bean_index = self.hand.pop(0)
+    def plant(self, bean_index: int):
+        self.print_fields()
         available_fields = self.get_available_fields(bean_index)
 
         if len(available_fields) == 0:
-            print("No avalailable fields to plant the bean. You must harvest a field first.")
+            print(f"No avalailable fields to plant your {BEANS[bean_index]}. You must harvest a field first.")
             field_index = input(f"Choose a field to harvest (1-{len(self.fields)}): ")
             while not field_index.isdigit() or not (1 <= int(field_index) <= len(self.fields)):
                 field_index = input(f"Invalid input. Choose a field to harvest (1-{len(self.fields)}): ")
@@ -39,9 +35,9 @@ class Player():
             self.coins += self.fields[field_index].harvest()
         elif len(available_fields) == 1:
             field_index = available_fields[0]
-            print(f"Only one available field to plant the bean. Planting in field {field_index + 1}.")
+            print(f"Only one available field to plant your {BEANS[bean_index]}. Planting in field {field_index + 1}.")
         else:
-            print(f"You have {len(available_fields)} available field(s) to plant the bean.")
+            print(f"You have {len(available_fields)} available fields to plant your {BEANS[bean_index]}.")
             field_index = input(f"Choose a field to plant the bean (1-{len(self.fields)}): ")
             while not field_index.isdigit() or not (1 <= int(field_index) <= len(self.fields)) or (int(field_index) - 1) not in available_fields:
                 field_index = input(f"Invalid input. Choose a field to plant the bean (1-{len(self.fields)}): ")
@@ -60,10 +56,9 @@ class Player():
         self.print_fields()
 
 
-    def print_hand(self) -> None:
-        print("Your hand: ")
-        for index, bean in enumerate(self.hand):
-            print(f"| {index + 1}: {BEANS[bean].name} |", end=" ")
+    def print_beans(self, beans: list[int]) -> None:
+        for index, bean in enumerate(beans):
+            print(f"| {index + 1}: {BEANS[bean]} |", end=" ")
         print("\n")
 
 
