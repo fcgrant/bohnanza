@@ -23,16 +23,3 @@ BEANS = [
     Bean("Cocoa Bean", 4, {2: 2, 3: 3, 4: 4}),
     Bean("Field Bean", 3, {2: 2, 3: 3})
 ]
-
-COFFEE_BEAN = 0
-WAX_BEAN = 1
-BLUE_BEAN = 2
-CHILI_BEAN = 3
-STINK_BEAN = 4
-GREEN_BEAN = 5
-SOY_BEAN = 6
-BLACK_EYED_BEAN = 7
-RED_BEAN = 8
-GARDEN_BEAN = 9
-COCOA_BEAN = 10
-FIELD_BEAN = 11
