@@ -14,14 +14,12 @@ class Field():
         return BEANS[self.bean_id].name
 
     def plant(self, bean_index: int) -> None:
-        if self.bean_id is None:
-            self.bean_id = bean_index
-
-        if self.bean_id != bean_index:
+        if self.bean_id is not None and self.bean_id != bean_index:
             print("Cannot plant different types of beans in the same field.")
             return
-
+        self.bean_id = bean_index
         self.number_of_beans += 1
+        return
 
     def harvest(self) -> int:
         if self.bean_id is None:

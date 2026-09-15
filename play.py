@@ -1,5 +1,6 @@
-from constants import MAX_RESHUFFLES
 from game import Game, EmptyDeck
+
+MAX_RESHUFFLES = 2
 
 
 if __name__ == "__main__":
@@ -19,12 +20,12 @@ if __name__ == "__main__":
             game.trade_phase(player)
             game.planting_after_trade_phase(player)
             game.draw_phase(player)
+            input("Press Enter to end your turn...")
         except EmptyDeck:    
             if game.reshuffle_count == MAX_RESHUFFLES:
                 print("Maximum reshuffles reached. Ending game.")
                 break
             print("Deck empty.")
             
-        input("Press Enter to end your turn...")
 
     print("Game over! Final scores: ")

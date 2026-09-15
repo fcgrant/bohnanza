@@ -17,12 +17,11 @@ class Player():
 
     def get_available_fields(self, bean_index: int) -> list[int]:
         """Gets the index/indices of available fields you can plant the bean in."""
-        available_fields: list[int] = []
-        for field in self.fields:
-            if field.bean_id == bean_index or field.bean_id is None:
-                available_fields.append(self.fields.index(field))
-        return available_fields
-    
+        return [
+            index for index, field in enumerate(self.fields)
+            if field.bean_id is None or field.bean_id == bean_index
+        ]
+
     def plant(self):
         if not self.hand:
             print("No beans in hand to plant.")
@@ -30,17 +29,15 @@ class Player():
 
         bean_index = self.hand.pop(0)
         available_fields = self.get_available_fields(bean_index)
-        number_of_available_fields = len(available_fields)
-        number_of_fields = len(self.fields)
 
         if len(available_fields) == 0:
             print("No avalailable fields to plant the bean. You must harvest a field first.")
-            field_index = input(f"Choose a field to harvest (1-{number_of_fields}): ")
+            field_index = input(f"Choose a field to harvest (1-{len(self.fields)}): ")
             while not field_index.isdigit() or not (1 <= int(field_index) <= len(self.fields)):
                 field_index = input(f"Invalid input. Choose a field to harvest (1-{len(self.fields)}): ")
             field_index = int(field_index) - 1
             self.coins += self.fields[field_index].harvest()
-        elif number_of_available_fields == 1:
+        elif len(available_fields) == 1:
             field_index = available_fields[0]
             print(f"Only one available field to plant the bean. Planting in field {field_index + 1}.")
         else:
