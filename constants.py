@@ -1,1 +1,0 @@
-MAX_RESHUFFLES = 2
